@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-﻿using System.Net.Security;
-
 class Program
 
 {
@@ -28,11 +25,11 @@ class Program
             if (taxIsInt)
             {
                 Show(salary,taxes);
-
+        
                 if (salary > 50000)
                 {
                     Console.WriteLine("Il faudrait faire des dons pour réduire tes impots");
-                }
+    }
                 else if ((salary / 12) < 1500)
                 {
                     Console.WriteLine("C'est normal pour un alternant :)");
@@ -60,4 +57,4 @@ class Program
         Console.WriteLine("Taux d'imposition: " + b + "%");
         Console.WriteLine("Votre salaire net, apres l'imposition est de: " + ((a / 12) - ((a / 12)) * b / 100) + "€");
    
-    }
+}
