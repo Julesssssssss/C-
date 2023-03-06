@@ -1,6 +1,8 @@
+<<<<<<< HEAD
 ﻿using System.Net.Security;
 
 class Program
+
 {
     static void Square(int a, int b)
     {
@@ -12,11 +14,11 @@ class Program
     }
     static void Main(string[] args)
     {
+
         
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine("Entrez dabord votres salaire, puis les taxes:");
         Console.WriteLine("Votre salaire a l'année: ");
-
         bool salaryIsInt = int.TryParse(Console.ReadLine(), out int salary);
         if (salaryIsInt)
         {
@@ -50,11 +52,12 @@ class Program
             Console.WriteLine("You had to enter an integer");
         }
 
+
     }
     static void Show(float a, float b)
     {
         Console.WriteLine("Salaire: " + a / 12 + "€");
         Console.WriteLine("Taux d'imposition: " + b + "%");
         Console.WriteLine("Votre salaire net, apres l'imposition est de: " + ((a / 12) - ((a / 12)) * b / 100) + "€");
+   
     }
-}
