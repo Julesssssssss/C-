@@ -19,11 +19,11 @@ class Program
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine("Entrez dabord votres salaire, puis les taxes:");
         Console.WriteLine("Votre salaire a l'année (en brut): ");
-        bool salaryIsInt = int.TryParse(Console.ReadLine(), out int salary);
+        bool salaryIsInt = double.TryParse(Console.ReadLine(), out double salary);
         if (salaryIsInt)
         {
             Console.WriteLine("Votre pourcentage de taxes: ");
-            bool taxIsInt = int.TryParse(Console.ReadLine(), out int taxes);
+            bool taxIsInt = double.TryParse(Console.ReadLine(), out double taxes);
 
             if (taxIsInt)
             {
@@ -53,42 +53,44 @@ class Program
             Console.WriteLine("You had to enter an integer");
         }
 
-
-        string[] mois = new string[12];
-        mois[0]= "Janvier";
-        mois[1]= "Fevrier";
-        mois[2]= "Mars";
-        mois[3]= "Avril";
-        mois[4]= "Mai";
-        mois[5]= "Juin";
-        mois[6]= "Juillet";
-        mois[7]= "Aout";
-        mois[8]= "Septembre";
-        mois[9]= "Octobre";
-        mois[10]= "Novembre";
-        mois[11]= "Decembre";
-
-        foreach (string mo in mois)
+        try
         {
-            if (mo == "Decembre")
+            Console.WriteLine("Quel est le pourcentage de votre prime en décembre ? ");
+            bool primeIsInt = int.TryParse(Console.ReadLine(), out int prime);
+            if (primeIsInt)
             {
-                Console.WriteLine("En " + mo + " votre salaire est de: " + (salary + salary * 10/100) + "€");
-            }
-            else if(mo == "Aout")
-            {
-                Console.WriteLine("En " + mo + " vous n'avez pas de salaire puisque l'entreprise est fermé");
+                string[] months = new string[] { "Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre" };
+
+                foreach (string month in months)
+                {
+                    if (month == "Decembre")
+                    {
+                        Console.WriteLine("En " + month + " votre salaire est de: " + (salary + salary * prime / 100) + "€");
+                    }
+                    else if (month == "Aout")
+                    {
+                        Console.WriteLine("En " + month + " vous n'avez pas de salaire puisque l'entreprise est fermé");
+                    }
+                    else
+                    {
+                        Console.WriteLine("En " + month + " votre salaire est de: " + salary + "€");
+                    }
+                }
             }
             else
             {
-                Console.WriteLine("En " + mo + " votre salaire est de: " + salary + "€");
+                Console.WriteLine("Please enter an integer for your december bounty");
             }
         }
-
-
+        catch (FormatException e)
+        {
+            Console.WriteLine(e + " You had to enter an integer");
+        }
+        
 
 
     }
-    static void Show(float a, float b)
+    static void Show(double a, double b)
     {
         Console.WriteLine("Salaire brut mensuel: " + a / 12 + "€");
         Console.WriteLine("Taux d'imposition: " + b + "%");
