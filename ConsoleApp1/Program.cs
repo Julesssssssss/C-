@@ -1,15 +1,7 @@
 using Microsoft.Win32.SafeHandles;
 using System.Collections;
+using ConsoleApp1.Models;
 
-class User
-{
-    public int ID { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public int Age { get; set; }
-    public int Salary { get; set; }
-    public double Tax { get; set; }
-}
 class Program
 
 {
