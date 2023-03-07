@@ -1,6 +1,15 @@
 using Microsoft.Win32.SafeHandles;
 using System.Collections;
 
+class User
+{
+    public int ID { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int Age { get; set; }
+    public int Salary { get; set; }
+    public double Tax { get; set; }
+}
 class Program
 
 {
@@ -14,7 +23,26 @@ class Program
     }
     static void Main(string[] args)
     {
-
+        User user = new User();
+        Console.WriteLine("Quel est votre ID : ");
+        user.ID = int.Parse(Console.ReadLine());
+        Console.WriteLine("Quel est votre Prénom : ");
+        user.FirstName = Console.ReadLine();
+        Console.WriteLine("Quel est votre Nom : ");
+        user.LastName = Console.ReadLine();
+        Console.WriteLine("Quel est votre Âge : ");
+        user.Age = int.Parse(Console.ReadLine());
+        Console.WriteLine("Quel est votre Salaire annuel Brut : ");
+        user.Salary = int.Parse(Console.ReadLine().Replace("€", ""));
+        Console.WriteLine("Quel est votre Taux d'imposition : ");
+        user.Tax = double.Parse(Console.ReadLine().Replace("%", ""));
+        Console.WriteLine("\nID : " + user.ID);
+        Console.WriteLine("Prénom : " + user.FirstName);
+        Console.WriteLine("Nom : " + user.LastName);
+        Console.WriteLine("Âge : " + user.Age);
+        Console.WriteLine("Salaire Brut : " + user.Salary + "€");
+        Console.WriteLine("Taux d'imposition : " + user.Tax + "%");
+        
 
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine("Entrez dabord votres salaire, puis les taxes:");
@@ -28,7 +56,7 @@ class Program
             if (taxIsInt)
             {
                 Show(salary, taxes);
-                
+
                 if (salary > 50000)
                 {
                     Console.WriteLine("Il faudrait faire des dons pour réduire tes impots");
@@ -86,17 +114,19 @@ class Program
         {
             Console.WriteLine(e + " You had to enter an integer");
         }
-        
 
 
-    }
-    static void Show(double a, double b)
-    {
-        Console.WriteLine("Salaire brut mensuel: " + a / 12 + "€");
-        Console.WriteLine("Taux d'imposition: " + b + "%");
-        Console.WriteLine("Votre salaire net, apres l'imposition est de: " + ((a / 12) - ((a / 12)) * b / 100) + "€");
 
+
+        static void Show(double a, double b)
+        {
+            Console.WriteLine("Salaire brut mensuel: " + a / 12 + "€");
+            Console.WriteLine("Taux d'imposition: " + b + "%");
+            Console.WriteLine("Votre salaire net, apres l'imposition est de: " + ((a / 12) - ((a / 12)) * b / 100) + "€");
+
+        }
     }
 }
+
 
 
