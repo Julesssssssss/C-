@@ -15,8 +15,10 @@ class Program
     }
     static void Main(string[] args)
     {
-        User user = new User();
-        Console.WriteLine("Quel est votre ID : ");
+        User user1 = new(1,"Breham","Raphael",19,45000,25);
+        User user = new(0, "0", "0", 0, 0, 0);
+        Console.WriteLine("Les caracteristiques de votre utilisateur sont : " + user1.ID + " " + user1.FirstName + " " + user1.LastName + " " + user1.Age + " " + user1.Salary + " " + user1.Tax);
+        Console.WriteLine("Quel est votre ID");
         user.ID = int.Parse(Console.ReadLine());
         Console.WriteLine("Quel est votre Prénom : ");
         user.FirstName = Console.ReadLine();
